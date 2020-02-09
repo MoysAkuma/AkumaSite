@@ -1,0 +1,207 @@
+<html>
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+footer i.fa{
+  cursor: pointer;  
+}
+</style>
+<body class="w3-light-grey">
+<div id="app">
+    <!--PAGINA-->
+    <title>{{perfil.nombre}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+        
+          <!-- Left Column -->
+          <div class="w3-third">
+          
+            <div class="w3-white w3-text-grey w3-card-4">
+              <div class="w3-display-container">
+                <img src="imgs/perfil.jpg" style="width:100%" alt="Avatar">
+                <div class="w3-display-bottomleft w3-container w3-text-white">
+                  <h2>{{perfil.nombre}}</h2>
+                </div>
+              </div>
+              <div class="w3-container">
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{perfil.puesto}}</p>
+                <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{perfil.ciudad}}, {{perfil.pais}}</p>
+                <p><a :href="getEmail()"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{perfil.correo}}</a></p>
+                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{perfil.telefono}}</p>
+                <hr>
+                <!--SKILLS-->
+                <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Habilidades</b></p>
+                <div v-for="skill in perfil.skills">
+                    <p>{{skill.nombre}}</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                    <div class="w3-container w3-center w3-round-xlarge w3-teal" :style="getPorcentaje(skill.porcentaje)">{{skill.porcentaje}}%</div>
+                    </div>
+                </div>
+                <br>
+      
+                <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Idiomas</b></p>
+                <!--LANGUAGES-->
+                <div v-for="lang in perfil.Languages">
+                    <p>{{lang.nombre}} <span class="w3-tag w3-teal w3-round" v-if="lang.IsCertificated">Certificacion</span></p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                    <div class="w3-round-xlarge w3-teal" :style="getPorcentajeLang(lang.porcentaje)"></div>
+                    </div>
+                </div>
+                <br>
+              </div>
+            </div><br>
+      
+          <!-- End Left Column -->
+          </div>
+      
+          <!-- Right Column -->
+          <div class="w3-twothird">
+          
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+              <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Experiencia Laboral</h2>
+              
+              <div class="w3-container" v-for="Work in perfil.WorkExp">
+                <h5 class="w3-opacity"><b>{{Work.puesto}} / {{Work.empresa}}</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Work.inicio}} - <span class="w3-tag w3-teal w3-round" if="Work.iscurrent">Actual</span><span else> {{Work.final}}</span></span></h6>
+                <p>{{Work.descripcion}}</p>
+                <hr>
+              </div>
+            </div>
+      
+            <div class="w3-container w3-card w3-white">
+              <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Educacion</h2>
+              <div class="w3-container" v-for="School in perfil.Education">
+                <h5 class="w3-opacity"><b>{{School.escuela}}</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{School.inicio}} - {{School.fin}}</h6>
+                <p>{{School.descripcion}}</p>
+                <hr>
+              </div>
+            </div>
+      
+          <!-- End Right Column -->
+          </div>
+          
+        <!-- End Grid -->
+        </div>
+        
+        <!-- End Page Container -->
+      </div>
+      
+      <footer class="w3-container w3-teal w3-center w3-margin-top">
+        <p>Enlaces</p>
+        <i @click="openLink(perfil.fb)" class="fa fa-facebook-official w3-hover-opacity" v-show="perfil.fb != ''"></i>
+        <i @click="openLink(perfil.ig)" class="fa fa-instagram w3-hover-opacity" v-show="perfil.ig != ''"></i>
+        <i @click="openLink(perfil.tw)" class="fa fa-twitter w3-hover-opacity" v-show="perfil.tw != ''"></i>
+        <i @click="openLink(perfil.ln)" class="fa fa-linkedin w3-hover-opacity" v-show="perfil.ln != ''"></i>
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        <p>Desarrollado por MoysAkuma Febrero 2020</p>
+      </footer>
+    <!--PAGINA_FIN-->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    var app = new Vue({
+    el: '#app',
+    data: {
+        perfil:{
+            nombre: 'Moises A. Moran R.',
+            puesto:"Full Stack Developer",
+            ciudad:"CULIACAN",
+            pais:"MX",
+            correo:"moises141294@hotmail.com",
+            telefono:"6673723471",
+            skills:[
+                {
+                    nombre:"Desarrollo web",
+                    porcentaje:"100"
+                },{
+                    nombre:"Desarrollo movil",
+                    porcentaje:"80"
+                },{
+                    nombre:"Desarrollo de aplicaciones de escritorio",
+                    porcentaje:"80"
+                }],
+            Languages:[
+                {
+                    nombre:"Español",
+                    porcentaje:"100",
+                    IsCertificated:false,
+                    IsNative:true
+                },{
+                    nombre:"Ingles",
+                    porcentaje:"75",
+                    IsCertificated:true,
+                    IsNative:true
+                }],
+            WorkExp:[
+                {
+                    puesto:"Full Stack Web Developer",
+                    empresa:"Azzule System",
+                    inicio:"FEB 2019",
+                    fin:"",
+                    iscurrent:true,
+                    descripcion:"Desarrollo de aplicaciones web usando VUEJS, JQuery, SQL Server 2008"
+                },
+                {
+                    puesto:"Programador Junior",
+                    empresa:"Coppel S.A. de C.V.",
+                    inicio:"ENE 2018",
+                    fin:"FEB 2019",
+                    iscurrent:false,
+                    descripcion:"Migracion y desarrollo de modulos web a angular,desarrollo de aplicaciones de escritorio, migracion y desarrollo de aplicaciones moviles para PDA y Android"
+                },
+                {
+                    puesto:"Full Stack Web Developer",
+                    empresa:"Ergosistemas Integrales S.A de C.V.",
+                    inicio:"JUN 2016",
+                    fin:"ENE 2018",
+                    iscurrent:false,
+                    descripcion:"Desarrollo aplicaciones web con Codeignaiter, PHP, MongoDB"
+                }
+            ],
+            Education:[
+                {
+                    escuela:"Universidad Autonoma de Sinaloa",
+                    inicio:"AGO 2013",
+                    fin:"AGO 2018",
+                    descripcion:"Licenciatura en Informatica"
+                },
+                {
+                    escuela:"Verano Cientifico / Desarrollo de sistema para control remoto mediante una aplicación de Android de Robots biológicamente inspirados",
+                    inicio:"JUN 2017",
+                    fin:"AGO 2017",
+                    descripcion:"Desarrollo de sistema para control remoto mediante una aplicación de Android de Robots biológicamente inspirados, implementacion de una red neuronal en un robot hexapodo"
+                }
+            ],
+            fb:"https://www.facebook.com/moysakuma",
+            ig:"https://www.instagram.com/moysakuma/?hl=es-la",
+            tw:"https://twitter.com/moysloco141294",
+            ln:"https://www.linkedin.com/in/moysakuma/"
+        }
+    },
+    methods: {
+        getPorcentaje:function(por){
+            return "width:"+por+"%";
+        },
+        getPorcentajeLang:function(por){
+            return "height:24px;width:"+por+"%";
+        },
+        openLink:function(url){
+            window.open(url, "_blank");
+        },
+        getEmail:function(){
+            return "mailto:"+this.perfil.correo;
+        }
+    }
+    })
+    
+</script>
+</body>
+</html>
