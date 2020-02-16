@@ -1,9 +1,7 @@
 <html>
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-footer i.fa{
-  cursor: pointer;  
-}
+footer i.fa{ cursor: pointer; }
 </style>
 <body class="w3-light-grey">
 <div id="app">
@@ -68,7 +66,7 @@ footer i.fa{
               
               <div class="w3-container" v-for="Work in perfil.WorkExp">
                 <h5 class="w3-opacity"><b>{{Work.puesto}} / {{Work.empresa}}</b></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Work.inicio}} - <span class="w3-tag w3-teal w3-round" if="Work.iscurrent">Actual</span><span else> {{Work.final}}</span></span></h6>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Work.inicio}} - <span class="w3-tag w3-teal w3-round" v-if="Work.iscurrent">Actual</span> <span v-else> {{Work.fin}}</span></h6>
                 <p>{{Work.descripcion}}</p>
                 <hr>
               </div>
@@ -86,13 +84,10 @@ footer i.fa{
       
           <!-- End Right Column -->
           </div>
-          
         <!-- End Grid -->
         </div>
-        
         <!-- End Page Container -->
       </div>
-      
       <footer class="w3-container w3-teal w3-center w3-margin-top">
         <p>Enlaces</p>
         <i @click="openLink(perfil.fb)" class="fa fa-facebook-official w3-hover-opacity" v-show="perfil.fb != ''"></i>
@@ -112,92 +107,92 @@ footer i.fa{
     data: {
         perfil:{
             nombre: 'Moises A. Moran R.',
-            puesto:"Full Stack Developer",
-            ciudad:"CULIACAN",
-            pais:"MX",
-            correo:"moises141294@hotmail.com",
-            telefono:"6673723471",
+            puesto: "Full Stack Developer",
+            ciudad: "CULIACAN",
+            pais: "MX",
+            correo: "moises141294@hotmail.com",
+            telefono: "6673723471",
             skills:[
                 {
-                    nombre:"Desarrollo web",
-                    porcentaje:"100"
+                    nombre: "Desarrollo web",
+                    porcentaje: "100"
                 },{
-                    nombre:"Desarrollo movil",
-                    porcentaje:"80"
+                    nombre: "Desarrollo movil",
+                    porcentaje: "80"
                 },{
-                    nombre:"Desarrollo de aplicaciones de escritorio",
-                    porcentaje:"80"
+                    nombre: "Desarrollo de aplicaciones de escritorio",
+                    porcentaje: "70"
                 }],
             Languages:[
                 {
-                    nombre:"Español",
-                    porcentaje:"100",
+                    nombre: "Español",
+                    porcentaje: "100",
                     IsCertificated:false,
                     IsNative:true
                 },{
-                    nombre:"Ingles",
-                    porcentaje:"75",
+                    nombre: "Ingles",
+                    porcentaje: "75",
                     IsCertificated:true,
                     IsNative:true
                 }],
             WorkExp:[
                 {
-                    puesto:"Full Stack Web Developer",
-                    empresa:"Azzule System",
-                    inicio:"FEB 2019",
-                    fin:"",
+                    puesto: "Full Stack Web Developer",
+                    empresa: "Azzule System",
+                    inicio: "FEB 2019",
+                    fin: "",
                     iscurrent:true,
-                    descripcion:"Desarrollo de aplicaciones web usando VUEJS, JQuery, SQL Server 2008"
+                    descripcion: "Desarrollo de aplicaciones web usando VUEJS, JQuery, SQL Server 2008"
                 },
                 {
-                    puesto:"Programador Junior",
-                    empresa:"Coppel S.A. de C.V.",
-                    inicio:"ENE 2018",
-                    fin:"FEB 2019",
+                    puesto: "Programador Junior",
+                    empresa: "Coppel S.A. de C.V.",
+                    inicio: "ENE 2018",
+                    fin: "FEB 2019",
                     iscurrent:false,
-                    descripcion:"Migracion y desarrollo de modulos web a angular,desarrollo de aplicaciones de escritorio, migracion y desarrollo de aplicaciones moviles para PDA y Android"
+                    descripcion: "Migración y desarrollo de modulos web a AngularJS, desarrollo de aplicaciones de escritorio, migración y desarrollo de aplicaciones moviles para PDA y Android"
                 },
                 {
-                    puesto:"Full Stack Web Developer",
-                    empresa:"Ergosistemas Integrales S.A de C.V.",
-                    inicio:"JUN 2016",
-                    fin:"ENE 2018",
+                    puesto: "Full Stack Web Developer",
+                    empresa: "Ergosistemas Integrales S.A de C.V.",
+                    inicio: "JUN 2016",
+                    fin: "ENE 2018",
                     iscurrent:false,
-                    descripcion:"Desarrollo aplicaciones web con Codeignaiter, PHP, MongoDB"
+                    descripcion: "Desarrollo aplicaciones web con JQuery, Codeigniter, PHP, MongoDB"
                 }
             ],
             Education:[
                 {
-                    escuela:"Universidad Autonoma de Sinaloa",
-                    inicio:"AGO 2013",
-                    fin:"AGO 2018",
-                    descripcion:"Licenciatura en Informatica"
+                    escuela: "Universidad Autonoma de Sinaloa",
+                    inicio: "AGO 2013",
+                    fin: "AGO 2018",
+                    descripcion: "Licenciatura en Informatica"
                 },
                 {
-                    escuela:"Verano Cientifico / Desarrollo de sistema para control remoto mediante una aplicación de Android de Robots biológicamente inspirados",
-                    inicio:"JUN 2017",
-                    fin:"AGO 2017",
-                    descripcion:"Desarrollo de sistema para control remoto mediante una aplicación de Android de Robots biológicamente inspirados, implementacion de una red neuronal en un robot hexapodo"
+                    escuela: "Verano Cientifico / Desarrollo de sistema para control remoto mediante una aplicación de Android de Robots biológicamente inspirados",
+                    inicio: "JUN 2017",
+                    fin: "AGO 2017",
+                    descripcion: "Desarrollo de sistema para control remoto mediante una aplicación de Android de Robots biológicamente inspirados, implementación de una red neuronal en un robot hexapodo"
                 }
             ],
-            fb:"https://www.facebook.com/moysakuma",
-            ig:"https://www.instagram.com/moysakuma/?hl=es-la",
-            tw:"https://twitter.com/moysloco141294",
-            ln:"https://www.linkedin.com/in/moysakuma/"
+            fb: "https://www.facebook.com/moysakuma",
+            ig: "https://www.instagram.com/moysakuma/?hl=es-la",
+            tw: "https://twitter.com/moysloco141294",
+            ln: "https://www.linkedin.com/in/moysakuma/"
         }
     },
     methods: {
         getPorcentaje:function(por){
-            return "width:"+por+"%";
+            return "width: "+por+"%";
         },
         getPorcentajeLang:function(por){
-            return "height:24px;width:"+por+"%";
+            return "height:24px;width: "+por+"%";
         },
         openLink:function(url){
             window.open(url, "_blank");
         },
         getEmail:function(){
-            return "mailto:"+this.perfil.correo;
+            return "mailto: "+this.perfil.correo;
         }
     }
     })
