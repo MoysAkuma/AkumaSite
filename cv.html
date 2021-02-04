@@ -34,7 +34,7 @@ footer i.fa{ cursor: pointer; }
                 <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{perfil.telefono}}</p>
                 <hr>
                 <!--SKILLS-->
-                <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Habilidades</b></p>
+                <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>{{$t('lblskills')}}</b></p>
                 <div v-for="skill in perfil.skills">
                     <p>{{skill.nombre}}</p>
                     <div class="w3-light-grey w3-round-xlarge w3-small">
@@ -42,11 +42,10 @@ footer i.fa{ cursor: pointer; }
                     </div>
                 </div>
                 <br>
-      
-                <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Idiomas</b></p>
                 <!--LANGUAGES-->
+                <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>{{$t('lblLang')}}</b></p>
                 <div v-for="lang in perfil.Languages">
-                    <p>{{lang.nombre}} <span class="w3-tag w3-teal w3-round" v-if="lang.IsCertificated">Certificacion</span></p>
+                    <p>{{lang.nombre}} <span class="w3-tag w3-teal w3-round" v-if="lang.IsCertificated">{{$t('lblCert')}}</span></p>
                     <div class="w3-light-grey w3-round-xlarge">
                     <div class="w3-round-xlarge w3-teal" :style="getPorcentajeLang(lang.porcentaje)"></div>
                     </div>
@@ -62,18 +61,18 @@ footer i.fa{ cursor: pointer; }
           <div class="w3-twothird">
           
             <div class="w3-container w3-card w3-white w3-margin-bottom">
-              <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Experiencia Laboral</h2>
+              <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>{{$t('lblWorkExp')}}</h2>
               
               <div class="w3-container" v-for="Work in perfil.WorkExp">
                 <h5 class="w3-opacity"><b>{{Work.puesto}} / {{Work.empresa}}</b></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Work.inicio}} - <span class="w3-tag w3-teal w3-round" v-if="Work.iscurrent">Actual</span> <span v-else> {{Work.fin}}</span></h6>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Work.inicio}} - <span class="w3-tag w3-teal w3-round" v-if="Work.iscurrent">{{$t('lblCurrent')}}</span> <span v-else> {{Work.fin}}</span></h6>
                 <p>{{Work.descripcion}}</p>
                 <hr>
               </div>
             </div>
       
             <div class="w3-container w3-card w3-white">
-              <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Educacion</h2>
+              <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>{{$t('lblSchool')}}</h2>
               <div class="w3-container" v-for="School in perfil.Education">
                 <h5 class="w3-opacity"><b>{{School.escuela}}</b></h5>
                 <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{School.inicio}} - {{School.fin}}</h6>
@@ -88,33 +87,71 @@ footer i.fa{ cursor: pointer; }
         </div>
         <!-- End Page Container -->
       </div>
-      <footer class="w3-container w3-teal w3-center w3-margin-top">
-        <p>Enlaces</p>
+      <footer class="w3-container w3-teal w3-center">
+        <p>{{$t('lblLink')}}</p>
         <i @click="openLink(perfil.fb)" class="fa fa-facebook-official w3-hover-opacity" v-show="perfil.fb != ''"></i>
         <i @click="openLink(perfil.ig)" class="fa fa-instagram w3-hover-opacity" v-show="perfil.ig != ''"></i>
         <i @click="openLink(perfil.tw)" class="fa fa-twitter w3-hover-opacity" v-show="perfil.tw != ''"></i>
         <i @click="openLink(perfil.ln)" class="fa fa-linkedin w3-hover-opacity" v-show="perfil.ln != ''"></i>
+        <i @click="openLink(perfil.gh)" class="fa fa-github w3-hover-opacity" v-show="perfil.gh != ''"></i>
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-        <p>Desarrollado por MoysAkuma Febrero 2020</p>
+        <p>{{$t('lblDevelopBy')}} MoysAkuma {{$t('lblLastUpdate')}}  {{lastUpdateTxt}}</p>
+        <p>{{$t('lblLanguages')}} <select v-model="locale" @Change="changelng"><option v-for="lng in lngs" v-bind:value="lng.value">{{lng.txt}}</option>  </select></p>
       </footer>
     <!--PAGINA_FIN-->
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
 <script>
-    var app = new Vue({
+  const textos = 
+  {
+    es:
+      {
+        "lblskills":"Habilidades",
+        "lblViewLang":"Ver en",
+        "lblLink":"Enlaces",
+        "lblDevelopBy":"Desarrollado por",
+        "lblSchool":"Educacion",
+        "lblWorkExp":"Experiencia Laboral",
+        "lblLang":"Idiomas",
+        "lblCert":"Certificacion",
+        "lblCurrent":"Actual",
+        "lblLastUpdate":"Ultima Actualizacion",
+        "lblLanguages":"Cambiar Idioma"
+      },
+    en:
+      {
+        "lblskills":"Skills",
+        "lblViewLang":"View in",
+        "lblLink":"Links",
+        "lblDevelopBy":"Developed by",
+        "lblSchool":"School",
+        "lblWorkExp":"Work Exp",
+        "lblLang":"Languages",
+        "lblCert":"Cert",
+        "lblCurrent":"Current",
+        "lblLastUpdate":"Last updated",
+        "lblLanguages":"Change Language"
+      }
+  };
+  
+  const i18n = new VueI18n({ messages: textos });
+    
+  var app = new Vue({
     el: '#app',
+    i18n: i18n,
     data: {
         perfil:{
-            nombre: 'Moises A. Moran R.',
-            puesto: "Full Stack Developer",
+            nombre: 'Moises Moran',
+            puesto: "Developer",
             ciudad: "CULIACAN",
             pais: "MX",
             correo: "moises141294@hotmail.com",
             telefono: "6673723471",
             skills:[
                 {
-                    nombre: "Desarrollo web owo",
+                    nombre: "Desarrollo web",
                     porcentaje: "100"
                 },{
                     nombre: "Desarrollo movil",
@@ -178,8 +215,19 @@ footer i.fa{ cursor: pointer; }
             fb: "https://www.facebook.com/moysakuma",
             ig: "https://www.instagram.com/moysakuma/?hl=es-la",
             tw: "https://twitter.com/moysloco141294",
-            ln: "https://www.linkedin.com/in/moysakuma/"
-        }
+            ln: "https://www.linkedin.com/in/moysakuma/",
+            gh: "https://github.com/MoysAkuma"
+        },
+        lastUpdate : "02-04-2021",
+        lastUpdateTxt : "",
+        locale: localStorage.getItem("locale"),
+        lngs:[
+          {txt:"Español", value:"es"},
+          {txt:"English", value:"en"},
+        ]
+    },
+    created() {
+        this.$i18n.locale = this.locale || "es";
     },
     methods: {
         getPorcentaje:function(por){
@@ -193,6 +241,9 @@ footer i.fa{ cursor: pointer; }
         },
         getEmail:function(){
             return "mailto: "+this.perfil.correo;
+        },
+        changelng:function(){
+          this.$i18n.locale = this.locale;
         }
     }
     })
