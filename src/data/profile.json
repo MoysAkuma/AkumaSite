@@ -1,0 +1,25 @@
+{
+  "name": "Moises Moran",
+  "title": "Desarrollador Full Stack que busca democratizar la programación, crear contenido sobre el proceso de creacion de sistemas y ganarse la vida haciendo lo que ama.",
+  "email": "moises.moran.dev@gmail.com",
+  "phone": "+6673723471",
+  "location": "Culiacan, Sinaloa, México",
+  "bio": "Naci en un pueblo pequeño, decidi dedicar mi vida en a crear sistemas y ayudar a los demás con lo que se hacer.",
+  "avatar": "/avatar.jpg",
+  "social": {
+    "github": "https://github.com/tuusuario",
+    "linkedin": "https://linkedin.com/in/tuusuario",
+    "twitter": "https://twitter.com/tuusuario",
+    "email": "mailto:tu@email.com"
+  },
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Astro",
+    "Tailwind CSS",
+    "Node.js",
+    "Python",
+    "Git"
+  ]
+}

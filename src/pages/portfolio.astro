@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHeader from '../components/PageHeader.astro';
+import portfolioData from '../data/portfolio.json';
+
+const categories = [...new Set(portfolioData.portfolio.map(item => item.category))];
+---
+
+<BaseLayout title="Portfolio - Mi Sitio Personal">
+  <Navbar />
+  <PageHeader 
+    title="Portfolio" 
+    subtitle="Trabajos realizados y casos de éxito"
+  />
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Categories Filter -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button 
+          class="filter-btn px-6 py-2 rounded-full bg-primary-600 text-white font-medium"
+          data-category="all"
+        >
+          Todos
+        </button>
+        {categories.map((category) => (
+          <button 
+            class="filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 font-medium transition"
+            data-category={category}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {portfolioData.portfolio.map((item) => (
+          <article 
+            class="portfolio-item group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition"
+            data-category={item.category}
+          >
+            <div class="aspect-video bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
+              <span class="text-6xl opacity-50">🎨</span>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <span class="px-3 py-1 bg-primary-100 text-primary-700 text-sm rounded-full">
+                  {item.category}
+                </span>
+                <span class="text-sm text-gray-500">{item.year}</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2 group-hover:text-primary-600 transition">
+                {item.title}
+              </h3>
+              <p class="text-gray-600 mb-3">{item.description}</p>
+              <p class="text-sm text-gray-500">
+                Cliente: <span class="font-medium">{item.client}</span>
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+      
+      // Update active button
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-primary-600', 'text-white');
+        btn.classList.add('bg-gray-200', 'text-gray-700');
+      });
+      button.classList.remove('bg-gray-200', 'text-gray-700');
+      button.classList.add('bg-primary-600', 'text-white');
+
+      // Filter items
+      portfolioItems.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

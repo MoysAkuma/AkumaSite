@@ -1,0 +1,60 @@
+{
+  "hobbies": [
+    {
+      "id": "1",
+      "title": "Japon",
+      "icon": "🇯🇵",
+      "description": "Soy un weeb.",
+      "image": "/hobbies/photography.jpg",
+      "tags": ["Pais", "Japon", "Viajes"]
+    },
+    {
+      "id": "2",
+      "title": "Gaming",
+      "icon": "🎮",
+      "description": "Fan de los videojuegos. Juego desde niño, nintendero desde la cuna, xboxero por la pirateria, PC por facilidad y Playstation por pendejo.",
+      "image": "/hobbies/gaming.jpg",
+      "tags": ["RPG", "Shooter", "Indie Games", "Retro", "Open World"]
+    },
+    {
+      "id": "3",
+      "title": "Anime",
+      "icon": "📺",
+      "description": "Me gustan las caricaturas japonesas.",
+      "image": "/hobbies/anime.jpg",
+      "tags": ["Shonen", "Seinen", "Slice of Life", "Romance"]
+    },
+    {
+      "id": "4",
+      "title": "Manga",
+      "icon": "📚",
+      "description": "Leo mas mangas que anime, me gusta el comic y sobre todo si es japones.",
+      "image": "/hobbies/manga.jpg",
+      "tags": ["Shonen", "Seinen"]
+    },
+    {
+      "id": "5",
+      "title": "Fotografía",
+      "icon": "📸",
+      "description": "A veces tomo fotos de cosas que me gustan.",
+      "image": "/hobbies/photography.jpg",
+      "tags": ["Paisajes", "Retratos", "Nocturna", "Urbana", "Naturaleza"]
+    },
+    {
+      "id": "6",
+      "title": "Coding Side Projects",
+      "icon": "⚡",
+      "description": "Me gusta hacer sistemas para ayudar a otros y ganarme la vida haciendo lo que amo.",
+      "image": "/hobbies/coding.jpg",
+      "tags": ["Programacion", "Experimentos", "Cloud", "Arquitectura", "Liderazgo", "Mentoria"]
+    },
+    {
+        "id": "7",
+        "title": "Crear Contenido",
+        "icon": "🎨",
+        "description": "Me gusta crear contenido digital, desde videos hasta blogs, compartiendo mis experiencias y conocimientos.",
+        "image": "/hobbies/content_creation.jpg",
+        "tags": ["Videos", "Blogs", "Redes Sociales", "Fotografía", "Edición"]
+    }
+  ]
+}

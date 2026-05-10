@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import PageHeader from '../components/PageHeader.astro';
+import hobbiesData from '../data/hobbies.json';
+---
+
+<BaseLayout title="Hobbies - Mi Sitio Personal">
+  <Navbar />
+  <PageHeader 
+    title="Hobbies & Pasiones" 
+    subtitle="Más allá del código"
+  />
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {hobbiesData.hobbies.map((hobby) => (
+          <article class="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+            <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+              <span class="text-8xl group-hover:scale-110 transition-transform">{hobby.icon}</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3 group-hover:text-primary-600 transition">
+                {hobby.title}
+              </h3>
+              <p class="text-gray-600 mb-4">{hobby.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {hobby.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Personal Quote Section -->
+  <section class="py-16 bg-gradient-to-br from-primary-50 to-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <blockquote class="text-2xl md:text-3xl font-medium text-gray-900 mb-4">
+        "Tu di que si y luego vemos como la hacemos"
+      </blockquote>
+      <p class="text-lg text-gray-600">
+        - Mi filosofía de vida
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,56 @@
+{
+  "services": [
+    {
+      "id": "1",
+      "title": "Desarrollo Web",
+      "icon": "💻",
+      "description": "Creación de sitios web y aplicaciones web modernas, responsivas y optimizadas.",
+      "features": [
+        "Sitios web responsive",
+        "Aplicaciones web SPA",
+        "E-commerce personalizado",
+        "Optimización SEO"
+      ],
+      "price": "Desde $500"
+    },
+    {
+      "id": "2",
+      "title": "Diseño UI/UX",
+      "icon": "🎨",
+      "description": "Diseño de interfaces intuitivas y experiencias de usuario excepcionales.",
+      "features": [
+        "Diseño de interfaces",
+        "Prototipado interactivo",
+        "Design Systems",
+        "User Research"
+      ],
+      "price": "Desde $400"
+    },
+    {
+      "id": "3",
+      "title": "Desarrollo Mobile",
+      "icon": "📱",
+      "description": "Aplicaciones móviles nativas y multiplataforma para iOS y Android.",
+      "features": [
+        "Apps nativas iOS/Android",
+        "Apps multiplataforma",
+        "Integración API",
+        "Publicación en stores"
+      ],
+      "price": "Desde $800"
+    },
+    {
+      "id": "4",
+      "title": "Consultoría Tech",
+      "icon": "🚀",
+      "description": "Asesoramiento técnico y estratégico para proyectos digitales.",
+      "features": [
+        "Arquitectura de software",
+        "Auditoría de código",
+        "Optimización de performance",
+        "Mentoring técnico"
+      ],
+      "price": "Desde $100/hora"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  centered?: boolean;
+}
+
+const { title, subtitle, centered = true } = Astro.props;
+---
+
+<section class={`py-16 bg-gradient-to-r from-primary-600 to-primary-700 text-white ${centered ? 'text-center' : ''}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
+    {subtitle && (
+      <p class="text-xl md:text-2xl text-primary-100">{subtitle}</p>
+    )}
+  </div>
+</section>
