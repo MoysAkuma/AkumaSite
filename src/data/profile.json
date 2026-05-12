@@ -7,19 +7,19 @@
   "bio": "Naci en un pueblo pequeño, decidi dedicar mi vida en a crear sistemas y ayudar a los demás con lo que se hacer.",
   "avatar": "/avatar.jpg",
   "social": {
-    "github": "https://github.com/tuusuario",
-    "linkedin": "https://linkedin.com/in/tuusuario",
-    "twitter": "https://twitter.com/tuusuario",
-    "email": "mailto:tu@email.com"
+    "github": "https://github.com/moysakuma",
+    "linkedin": "https://linkedin.com/in/moysakuma",
+    "twitter": "https://twitter.com/moysakuma",
+    "email": "mailto:moises.moran.dev@gmail.com"
   },
   "skills": [
     "JavaScript",
     "TypeScript",
     "React",
-    "Astro",
-    "Tailwind CSS",
+    "Java",
+    "Spring Boot",
     "Node.js",
-    "Python",
+    "Express",
     "Git"
   ]
 }

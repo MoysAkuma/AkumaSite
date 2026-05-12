@@ -4,28 +4,10 @@
       "id": "1",
       "title": "Adondevamos.net",
       "category": "Pagina web",
-      "description": "Pagina web para mostrar tus viajes y votar por destinos deseados. Sitio web Front-End (React), Back-End (Express.js), Supabase API and Redis session management.",
+      "description": "Pagina web para mostrar tus viajes y votar por destinos deseados.",
       "image": "/portfolio/adondevamos.jpg",
       "year": "2024",
       "link": "https://adondevamos.net"
-    },
-    {
-      "id": "2",
-      "title": "Portafolio Profesional",
-      "category": "Front-End",
-      "description": "Sitio web con mi CV, enfocado a las empresas.",
-      "image": "/portfolio/NoCv.jpg",
-      "year": "2025",
-      "link": "https://moysakuma.github.io/No.CV/"
-    },
-    {
-      "id": "3",
-      "title": "Citame Platform",
-      "category": "Desarrollo de plataforma",
-      "description": "Plataforma para gestión de citas y reservas.",
-      "image": "/portfolio/portfolio3.jpg",
-      "year": "TBD",
-      "link": "TBD"
     }
   ]
 }

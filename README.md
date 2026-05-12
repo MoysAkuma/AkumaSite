@@ -103,13 +103,13 @@ Edita `src/data/hobbies.json` para mostrar tus intereses personales.
 git add .
 git commit -m "Initial commit"
 git branch -M main
-git remote add origin https://github.com/tuusuario/AkumaSite.git
+git remote add origin https://github.com/MoysAkuma/AkumaSite.git
 git push -u origin main
 ```
 
 3. Ve a Settings → Pages en tu repositorio de GitHub
 4. En "Source", selecciona "GitHub Actions"
-5. El workflow se ejecutará automáticamente y tu sitio estará disponible en `https://tuusuario.github.io/AkumaSite`
+5. El workflow se ejecutará automáticamente y tu sitio estará disponible en `https://MoysAkuma.github.io/AkumaSite`
 
 ### Deploy Manual
 
