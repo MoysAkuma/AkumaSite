@@ -5,7 +5,7 @@
       "title": "Japon",
       "icon": "🇯🇵",
       "description": "Soy un weeb.",
-      "image": "/hobbies/photography.jpg",
+      "image": "/hobbies/japan.jpg",
       "tags": ["Pais", "Japon", "Viajes"]
     },
     {
@@ -14,10 +14,10 @@
       "icon": "🎮",
       "description": "Fan de los videojuegos. Juego desde niño, nintendero desde la cuna, xboxero por la pirateria, PC por facilidad y Playstation por pendejo.",
       "image": "/hobbies/gaming.jpg",
-      "tags": ["RPG", "Shooter", "Indie Games", "Retro", "Open World"]
+      "tags": ["RPG", "Shooter", "Indie Games", "Retro", "Mundo Abierto"]
     },
     {
-      "id": "3",
+      "id": "4",
       "title": "Anime",
       "icon": "📺",
       "description": "Me gustan las caricaturas japonesas.",
@@ -25,7 +25,7 @@
       "tags": ["Shonen", "Seinen", "Slice of Life", "Romance"]
     },
     {
-      "id": "4",
+      "id": "3",
       "title": "Manga",
       "icon": "📚",
       "description": "Leo mas mangas que anime, me gusta el comic y sobre todo si es japones.",
@@ -37,7 +37,7 @@
       "title": "Fotografía",
       "icon": "📸",
       "description": "A veces tomo fotos de cosas que me gustan.",
-      "image": "/hobbies/photography.jpg",
+      "image": "/hobbies/fotografia.jpg",
       "tags": ["Paisajes", "Retratos", "Nocturna", "Urbana", "Naturaleza"]
     },
     {

@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Adondevamos.net",
       "description": "Plataforma para mostrar tus viajes y votar por destinos deseados.",
-      "image": "/portfolio/adondevamos.jpg",
+      "image": "/portfolio/adondevamos.png",
       "tags": ["React", "Node.js", "Supabase", "Redis", "Resend"],
       "github": "https://github.com/MoysAkuma/adondevamos",
       "demo": "https://adondevamos.net",

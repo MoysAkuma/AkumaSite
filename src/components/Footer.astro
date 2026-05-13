@@ -2,6 +2,8 @@
 import profileData from '../data/profile.json';
 
 const currentYear = new Date().getFullYear();
+const baseUrl = import.meta.env.BASE_URL || '/';
+const currentPath = Astro.url.pathname;
 ---
 
 <footer class="bg-gray-900 text-white mt-auto">
@@ -19,10 +21,10 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-xl font-bold mb-4">Enlaces</h3>
         <ul class="space-y-2">
-          <li><a href={import.meta.env.BASE_URL || '/'} class="text-gray-400 hover:text-white transition">Inicio</a></li>
-          <li><a href={`${import.meta.env.BASE_URL || '/'}portfolio`} class="text-gray-400 hover:text-white transition">Portfolio</a></li>
-          <li><a href={`${import.meta.env.BASE_URL || '/'}projects`} class="text-gray-400 hover:text-white transition">Proyectos</a></li>
-          <li><a href={`${import.meta.env.BASE_URL || '/'}services`} class="text-gray-400 hover:text-white transition">Servicios</a></li>
+          <li><a href={`${baseUrl}/`} class="text-gray-400 hover:text-white transition">Inicio</a></li>
+          <li><a href={`${baseUrl}/portfolio`} class="text-gray-400 hover:text-white transition">Portfolio</a></li>
+          <li><a href={`${baseUrl}/projects`} class="text-gray-400 hover:text-white transition">Proyectos</a></li>
+          <li><a href={`${baseUrl}/services`} class="text-gray-400 hover:text-white transition">Servicios</a></li>
         </ul>
       </div>
 
