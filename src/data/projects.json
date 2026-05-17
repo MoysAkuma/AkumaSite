@@ -18,7 +18,7 @@
       "tags": ["React", "Node.js", "PostgreSQL"],
       "github": "https://github.com/MoysAkuma/citame",
       "demo": "",
-      "featured": true
+      "featured": false
     },
     {
       "id": "3",
@@ -27,7 +27,7 @@
       "image": "/projects/akumanotoolset.jpg",
       "tags": ["Node.js", "Express", "PostgreSQL", "JWT"],
       "github": "https://github.com/MoysAkuma/toolset",
-      "demo": null,
+      "demo": "https://moysakuma.github.io/toolset/",
       "featured": false
     }
   ]

@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://MoysAkuma.github.io',
-  base: '/AkumaSite',
+  base: '/',
   integrations: [tailwind()],
   output: 'static'
 });

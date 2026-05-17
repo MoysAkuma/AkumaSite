@@ -2,7 +2,7 @@
   "services": [
     {
       "id": "1",
-      "title": "Desarrollo Web",
+      "title": "Desarrollo de Software",
       "icon": "💻",
       "description": "Creación de sitios web y aplicaciones web modernas, responsivas y optimizadas.",
       "features": [
@@ -12,6 +12,19 @@
         "Optimización SEO"
       ],
       "price": "Desde $500"
+    },
+    {
+      "id": "2",
+      "title": "Consulta informática",
+      "icon": "💻",
+      "description": "Asesoramiento y soporte en tecnología y sistemas informáticos.",
+      "features": [
+        "Diagnóstico de problemas",
+        "Recomendaciones de software",
+        "Mantenimiento de sistemas",
+        "Optimización de redes"
+      ],
+      "price": "Desde $100 X hora"
     }
   ]
 }
