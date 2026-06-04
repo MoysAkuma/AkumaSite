@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeader from '../components/PageHeader.astro';
 import portfolioData from '../data/portfolio.json';
 
 const baseUrl = import.meta.env.BASE_URL || '/';
@@ -11,24 +10,31 @@ const categories = [...new Set(portfolioData.portfolio.map(item => item.category
 
 <BaseLayout title="Portfolio - Mi Sitio Personal">
   <Navbar />
-  <PageHeader 
-    title="Portfolio" 
-    subtitle="Trabajos realizados y casos de éxito"
-  />
+  
+  <!-- Header con estilo manga -->
+  <section class="py-16 bg-manga-cream relative overflow-hidden">
+    <div class="absolute inset-0 screentone-light opacity-5"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h1 class="text-6xl font-black text-manga-black mb-4 uppercase">
+        <span class="inline-block border-b-6 border-accent-red pb-2">🎨 Portfolio</span>
+      </h1>
+      <p class="text-xl text-manga-dark-gray font-bold">Trabajos realizados y casos de éxito</p>
+    </div>
+  </section>
 
-  <section class="py-16">
+  <section class="py-16 bg-manga-paper">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Categories Filter -->
       <div class="flex flex-wrap justify-center gap-4 mb-12">
         <button 
-          class="filter-btn px-6 py-2 rounded-full bg-primary-600 text-white font-medium"
+          class="filter-btn manga-button-red px-6 py-3 text-sm"
           data-category="all"
         >
           Todos
         </button>
         {categories.map((category) => (
           <button 
-            class="filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 font-medium transition"
+            class="filter-btn manga-button px-6 py-3 text-sm"
             data-category={category}
           >
             {category}
@@ -40,10 +46,10 @@ const categories = [...new Set(portfolioData.portfolio.map(item => item.category
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {portfolioData.portfolio.map((item) => (
           <article 
-            class="portfolio-item group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition"
+            class="portfolio-item manga-panel manga-zoom panel-appear"
             data-category={item.category}
           >
-            <div class="relative aspect-video bg-gradient-to-br from-primary-200 to-primary-400 overflow-hidden">
+            <div class="relative aspect-video bg-manga-light-gray overflow-hidden border-b-3 border-manga-black">
               <img 
                 src={`${baseUrl}${item.image}`}
                 alt={item.title}
@@ -54,31 +60,26 @@ const categories = [...new Set(portfolioData.portfolio.map(item => item.category
                 <span class="text-6xl opacity-50">🎨</span>
               </div>
             </div>
-            <div class="p-6">
+            <div class="p-6 relative">
+              <div class="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-t-accent-red border-l-[30px] border-l-transparent"></div>
               <div class="flex justify-between items-start mb-3">
-                <span class="px-3 py-1 bg-primary-100 text-primary-700 text-sm rounded-full">
+                <span class="px-3 py-1 bg-manga-black text-white text-xs font-black uppercase border-2 border-manga-black shadow-manga-sm">
                   {item.category}
                 </span>
-                <span class="text-sm text-gray-500">{item.year}</span>
+                <span class="text-sm text-manga-dark-gray font-bold">{item.year}</span>
               </div>
-              <h3 class="text-xl font-bold mb-2 group-hover:text-primary-600 transition">
+              <h3 class="text-xl font-black mb-2 text-manga-black uppercase">
                 {item.title}
               </h3>
-              <p class="text-gray-600 mb-3">{item.description}</p>
-              <p class="text-sm text-gray-500 mb-4">
-                Cliente: <span class="font-medium">{item.client}</span>
-              </p>
+              <p class="text-manga-dark-gray mb-4 font-medium">{item.description}</p>
               {item.link && (
                 <a 
                   href={item.link} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition"
+                  class="manga-button text-sm inline-block"
                 >
-                  Ver sitio
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  ⚡ Ver sitio
                 </a>
               )}
             </div>
@@ -92,8 +93,8 @@ const categories = [...new Set(portfolioData.portfolio.map(item => item.category
 </BaseLayout>
 
 <script>
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const portfolioItems = document.querySelectorAll<HTMLElement>('.portfolio-item');
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -101,11 +102,15 @@ const categories = [...new Set(portfolioData.portfolio.map(item => item.category
       
       // Update active button
       filterButtons.forEach(btn => {
-        btn.classList.remove('bg-primary-600', 'text-white');
-        btn.classList.add('bg-gray-200', 'text-gray-700');
+        if (btn.classList.contains('manga-button-red')) {
+          btn.classList.remove('manga-button-red');
+          btn.classList.add('manga-button');
+        }
       });
-      button.classList.remove('bg-gray-200', 'text-gray-700');
-      button.classList.add('bg-primary-600', 'text-white');
+      if (button.classList.contains('manga-button')) {
+        button.classList.remove('manga-button');
+        button.classList.add('manga-button-red');
+      }
 
       // Filter items
       portfolioItems.forEach(item => {

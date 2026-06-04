@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeader from '../components/PageHeader.astro';
 import hobbiesData from '../data/hobbies.json';
 
 const baseUrl = import.meta.env.BASE_URL || '/';
@@ -10,35 +9,43 @@ const baseUrl = import.meta.env.BASE_URL || '/';
 
 <BaseLayout title="Hobbies - Mi Sitio Personal">
   <Navbar />
-  <PageHeader 
-    title="Hobbies & Pasiones" 
-    subtitle="Más allá del código"
-  />
+  
+  <!-- Header con estilo manga -->
+  <section class="py-16 bg-manga-cream relative overflow-hidden">
+    <div class="absolute inset-0 screentone-light opacity-5"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h1 class="text-6xl font-black text-manga-black mb-4 uppercase">
+        <span class="inline-block border-b-6 border-accent-red pb-2">🎮 Hobbies</span>
+      </h1>
+      <p class="text-xl text-manga-dark-gray font-bold">Más allá del código me gusta perder el tiempo y vivir la vida</p>
+    </div>
+  </section>
 
-  <section class="py-16">
+  <section class="py-16 bg-manga-paper">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {hobbiesData.hobbies.map((hobby) => (
-          <article class="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-            <div class="relative aspect-video bg-gradient-to-br from-primary-100 to-primary-200 overflow-hidden">
+        {hobbiesData.hobbies.map((hobby, index) => (
+          <article class="manga-panel manga-zoom panel-appear overflow-hidden" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="relative aspect-video bg-manga-light-gray overflow-hidden border-b-3 border-manga-black">
               <img 
                 src={`${baseUrl}${hobby.image}`}
                 alt={hobby.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-full object-cover transition-transform duration-300"
                 onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';"
               />
-              <div class="hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
+              <div class="hidden absolute inset-0 items-center justify-center bg-manga-light-gray">
                 <span class="text-8xl">{hobby.icon}</span>
               </div>
             </div>
-            <div class="p-6">
-              <h3 class="text-2xl font-bold mb-3 group-hover:text-primary-600 transition">
+            <div class="p-6 relative">
+              <div class="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-t-accent-red border-l-[30px] border-l-transparent"></div>
+              <h3 class="text-2xl font-black mb-3 text-manga-black uppercase">
                 {hobby.title}
               </h3>
-              <p class="text-gray-600 mb-4">{hobby.description}</p>
+              <p class="text-manga-dark-gray mb-4 font-medium">{hobby.description}</p>
               <div class="flex flex-wrap gap-2">
                 {hobby.tags.map((tag) => (
-                  <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+                  <span class="px-3 py-1 bg-manga-black text-white text-xs font-black uppercase">
                     {tag}
                   </span>
                 ))}
@@ -51,14 +58,18 @@ const baseUrl = import.meta.env.BASE_URL || '/';
   </section>
 
   <!-- Personal Quote Section -->
-  <section class="py-16 bg-gradient-to-br from-primary-50 to-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <blockquote class="text-2xl md:text-3xl font-medium text-gray-900 mb-4">
-        "Tu di que si y luego vemos como la hacemos"
-      </blockquote>
-      <p class="text-lg text-gray-600">
-        - Mi filosofía de vida
-      </p>
+  <section class="py-20 bg-manga-cream relative overflow-hidden">
+    <div class="absolute inset-0 focus-lines opacity-10"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="manga-panel-skewed p-10 bg-white">
+        <div class="text-6xl mb-6">💭</div>
+        <blockquote class="text-3xl md:text-4xl font-black text-manga-black mb-6 italic">
+          "En mi tarjeta de presentación dice que soy arquitecto de software, pero en mi corazón soy un mago rojo de mis pasiones."
+        </blockquote>
+        <p class="text-xl text-accent-red font-black uppercase">
+          ⚡ Mi filosofía de vida (me la robe de iwata)
+        </p>
+      </div>
     </div>
   </section>
 

@@ -2,37 +2,46 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeader from '../components/PageHeader.astro';
 import projectsData from '../data/projects.json';
 
 const featuredProjects = projectsData.projects.filter(p => p.featured);
 const otherProjects = projectsData.projects.filter(p => !p.featured);
 ---
 
-<BaseLayout title="Proyectos - Mi Sitio Personal">
+<BaseLayout title="Proyectos">
   <Navbar />
-  <PageHeader 
-    title="Proyectos" 
-    subtitle="Código abierto y proyectos personales"
-  />
+  
+  <!-- Header con estilo manga -->
+  <section class="py-16 bg-manga-cream relative overflow-hidden">
+    <div class="absolute inset-0 screentone-light opacity-5"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h1 class="text-6xl font-black text-manga-black mb-4 uppercase">
+        <span class="inline-block border-b-6 border-accent-red pb-2">💻 Proyectos</span>
+      </h1>
+      <p class="text-xl text-manga-dark-gray font-bold">Proyectos personales</p>
+    </div>
+  </section>
 
   <!-- Featured Projects -->
   {featuredProjects.length > 0 && (
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-manga-paper">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold mb-8">Proyectos Destacados</h2>
+        <h2 class="text-4xl font-black mb-8 text-manga-black uppercase">
+          <span class="border-b-5 border-accent-red pb-2 inline-block">⭐ Proyectos Destacados</span>
+        </h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {featuredProjects.map((project) => (
-            <article class="bg-gradient-to-br from-gray-50 to-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition border border-primary-100">
-              <div class="aspect-video bg-gradient-to-br from-primary-300 to-primary-500 flex items-center justify-center">
-                <span class="text-8xl opacity-50">💻</span>
+            <article class="manga-panel-skewed panel-appear overflow-hidden">
+              <div class="aspect-video bg-manga-dark-gray flex items-center justify-center border-b-5 border-manga-black">
+                <span class="text-8xl">💻</span>
               </div>
-              <div class="p-8">
-                <h3 class="text-2xl font-bold mb-3">{project.title}</h3>
-                <p class="text-gray-600 mb-4">{project.description}</p>
+              <div class="p-8 relative">
+                <div class="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-t-accent-red border-l-[40px] border-l-transparent"></div>
+                <h3 class="text-3xl font-black mb-3 text-manga-black uppercase">{project.title}</h3>
+                <p class="text-manga-dark-gray mb-4 font-medium">{project.description}</p>
                 <div class="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag) => (
-                    <span class="px-3 py-1 bg-primary-100 text-primary-700 text-sm rounded-full">
+                    <span class="px-3 py-1 bg-manga-black text-white text-xs font-black uppercase border-2 border-manga-black shadow-manga-sm">
                       {tag}
                     </span>
                   ))}
@@ -43,12 +52,9 @@ const otherProjects = projectsData.projects.filter(p => !p.featured);
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
+                      class="manga-button text-sm"
                     >
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                      </svg>
-                      Código
+                      💻 Código
                     </a>
                   )}
                   {project.demo && (
@@ -56,9 +62,9 @@ const otherProjects = projectsData.projects.filter(p => !p.featured);
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
+                      class="manga-button-red text-sm"
                     >
-                      Demo
+                    🚀 Try it!
                     </a>
                   )}
                 </div>
@@ -72,21 +78,24 @@ const otherProjects = projectsData.projects.filter(p => !p.featured);
 
   <!-- Other Projects -->
   {otherProjects.length > 0 && (
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-manga-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold mb-8">Otros Proyectos</h2>
+        <h2 class="text-4xl font-black mb-8 text-manga-black uppercase">
+          <span class="border-b-5 border-accent-red pb-2 inline-block">📂 Otros Proyectos</span>
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherProjects.map((project) => (
-            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-              <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                <span class="text-6xl opacity-50">💻</span>
+            <article class="manga-panel manga-zoom panel-appear overflow-hidden">
+              <div class="aspect-video bg-manga-light-gray flex items-center justify-center border-b-3 border-manga-black">
+                <span class="text-6xl">💻</span>
               </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">{project.title}</h3>
-                <p class="text-gray-600 mb-4 text-sm">{project.description}</p>
+              <div class="p-6 relative">
+                <div class="absolute top-0 right-0 w-0 h-0 border-t-[25px] border-t-accent-red border-l-[25px] border-l-transparent"></div>
+                <h3 class="text-xl font-black mb-2 text-manga-black uppercase">{project.title}</h3>
+                <p class="text-manga-dark-gray mb-4 text-sm font-medium">{project.description}</p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   {project.tags.slice(0, 3).map((tag) => (
-                    <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                    <span class="px-2 py-1 bg-manga-black text-white text-xs font-black uppercase">
                       {tag}
                     </span>
                   ))}
@@ -97,9 +106,9 @@ const otherProjects = projectsData.projects.filter(p => !p.featured);
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-sm text-primary-600 hover:text-primary-700 font-medium"
+                      class="manga-button text-xs"
                     >
-                      Ver código →
+                      💻 Ver código
                     </a>
                   )}
                   {project.demo && (
@@ -107,9 +116,9 @@ const otherProjects = projectsData.projects.filter(p => !p.featured);
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-sm text-primary-600 hover:text-primary-700 font-medium"
+                      class="manga-button text-xs"
                     >
-                      Demo →
+                     🚀 Try it!
                     </a>
                   )}
                 </div>

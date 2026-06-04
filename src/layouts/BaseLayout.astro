@@ -1,4 +1,6 @@
 ---
+import '../styles/manga-global.css';
+
 interface Props {
   title: string;
   description?: string;
@@ -16,9 +18,12 @@ const baseUrl = import.meta.env.BASE_URL || '/';
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Rock+Salt&display=swap" rel="stylesheet">
     <title>{title}</title>
   </head>
-  <body class="bg-gray-50 text-gray-900 min-h-screen">
+  <body class="manga-paper text-manga-black min-h-screen">
     <slot />
   </body>
 </html>

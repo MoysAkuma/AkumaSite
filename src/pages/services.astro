@@ -2,43 +2,48 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import PageHeader from '../components/PageHeader.astro';
 import servicesData from '../data/services.json';
 import profileData from '../data/profile.json';
 ---
 
 <BaseLayout title="Servicios - Mi Sitio Personal">
   <Navbar />
-  <PageHeader 
-    title="Servicios" 
-    subtitle="Soluciones profesionales para tus proyectos digitales"
-  />
+  
+  <!-- Header con estilo manga -->
+  <section class="py-16 bg-manga-cream relative overflow-hidden">
+    <div class="absolute inset-0 screentone-light opacity-5"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h1 class="text-6xl font-black text-manga-black mb-4 uppercase">
+        <span class="inline-block border-b-6 border-accent-red pb-2">🚀 Servicios</span>
+      </h1>
+      <p class="text-xl text-manga-dark-gray font-bold">Soluciones profesionales para tus proyectos digitales</p>
+    </div>
+  </section>
 
-  <section class="py-16">
+  <section class="py-16 bg-manga-paper">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {servicesData.services.map((service) => (
-          <article class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition">
+        {servicesData.services.map((service, index) => (
+          <article class="manga-panel panel-appear relative overflow-hidden" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="absolute top-0 right-0 w-0 h-0 border-t-[50px] border-t-accent-red border-l-[50px] border-l-transparent"></div>
             <div class="text-6xl mb-4">{service.icon}</div>
-            <h3 class="text-2xl font-bold mb-3">{service.title}</h3>
-            <p class="text-gray-600 mb-6">{service.description}</p>
+            <h3 class="text-3xl font-black mb-3 text-manga-black uppercase">{service.title}</h3>
+            <p class="text-manga-dark-gray mb-6 font-medium">{service.description}</p>
             
             <div class="mb-6">
-              <h4 class="font-semibold mb-3 text-gray-900">Incluye:</h4>
+              <h4 class="font-black mb-3 text-manga-black uppercase text-sm">⚡ Incluye:</h4>
               <ul class="space-y-2">
                 {service.features.map((feature) => (
                   <li class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-primary-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span class="text-gray-700">{feature}</span>
+                    <span class="text-accent-red font-black text-lg">▶</span>
+                    <span class="text-manga-dark-gray font-medium">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div class="pt-6 border-t border-gray-200">
-              <p class="text-2xl font-bold text-primary-600">{service.price}</p>
+            <div class="pt-6 border-t-3 border-manga-black">
+              <p class="text-3xl font-black text-accent-red">{service.price}</p>
             </div>
           </article>
         ))}
@@ -47,24 +52,27 @@ import profileData from '../data/profile.json';
   </section>
 
   <!-- CTA Section -->
-  <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold mb-4">¿Tienes un proyecto en mente?</h2>
-      <p class="text-xl mb-8 text-primary-100">
-        Hablemos sobre cómo puedo ayudarte a hacer realidad tus ideas
+  <section class="py-20 bg-accent-red relative overflow-hidden border-t-6 border-manga-black">
+    <div class="absolute inset-0 screentone-dark opacity-10"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="speech-bubble mx-auto mb-8 bg-white">
+        <h2 class="text-3xl font-black text-manga-black">¿Tienes un proyecto en mente?</h2>
+      </div>
+      <p class="text-2xl mb-10 text-white font-black uppercase">
+        💬 Hablemos sobre cómo puedo ayudarte a hacer realidad tus ideas
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
+      <div class="flex flex-wrap justify-center gap-6">
         <a
           href={profileData.social.email}
-          class="px-8 py-3 bg-white text-primary-600 rounded-lg hover:bg-gray-100 transition font-medium"
+          class="manga-button px-10 py-4 text-lg"
         >
-          Contactar Ahora
+          📧 Contactar Ahora
         </a>
         <a
           href={import.meta.env.BASE_URL || '/'}
-          class="px-8 py-3 bg-primary-800 text-white rounded-lg hover:bg-primary-900 transition font-medium"
+          class="px-10 py-4 text-lg bg-manga-black text-white border-3 border-manga-black shadow-manga-lg font-bold uppercase hover:transform hover:-translate-y-1 hover:shadow-manga-xl transition-all"
         >
-          Ver Portfolio
+          🎨 Ver Portfolio
         </a>
       </div>
     </div>

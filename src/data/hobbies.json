@@ -4,8 +4,8 @@
       "id": "1",
       "title": "Japon",
       "icon": "🇯🇵",
-      "description": "Soy un weeb.",
-      "image": "/hobbies/japan.jpg",
+      "description": "Soy un weeb.He amado japon desde que empece a ver anime por los 2000s, adoro su cultura, su historia y su etica de trabajo, es un pais que admiro y espero poder volver algun dia.",
+      "image": "hobbies/japan.webp",
       "tags": ["Pais", "Japon", "Viajes"]
     },
     {
@@ -13,7 +13,7 @@
       "title": "Gaming",
       "icon": "🎮",
       "description": "Fan de los videojuegos. Juego desde niño, nintendero desde la cuna, xboxero por la pirateria, PC por facilidad y Playstation por pendejo.",
-      "image": "/hobbies/gaming.jpg",
+      "image": "hobbies/gaming.webp",
       "tags": ["RPG", "Shooter", "Indie Games", "Retro", "Mundo Abierto"]
     },
     {
@@ -21,7 +21,7 @@
       "title": "Anime",
       "icon": "📺",
       "description": "Me gustan las caricaturas japonesas.",
-      "image": "/hobbies/anime.jpg",
+      "image": "hobbies/anime.jpg",
       "tags": ["Shonen", "Seinen", "Slice of Life", "Romance"]
     },
     {
@@ -29,7 +29,7 @@
       "title": "Manga",
       "icon": "📚",
       "description": "Leo mas mangas que anime, me gusta el comic y sobre todo si es japones.",
-      "image": "/hobbies/manga.jpg",
+      "image": "hobbies/manga.jpg",
       "tags": ["Shonen", "Seinen"]
     },
     {
@@ -37,23 +37,23 @@
       "title": "Fotografía",
       "icon": "📸",
       "description": "A veces tomo fotos de cosas que me gustan.",
-      "image": "/hobbies/fotografia.jpg",
+      "image": "hobbies/fotografia.jpg",
       "tags": ["Paisajes", "Retratos", "Nocturna", "Urbana", "Naturaleza"]
     },
     {
       "id": "6",
       "title": "Coding Side Projects",
       "icon": "⚡",
-      "description": "Me gusta hacer sistemas para ayudar a otros y ganarme la vida haciendo lo que amo.",
-      "image": "/hobbies/coding.jpg",
-      "tags": ["Programacion", "Experimentos", "Cloud", "Arquitectura", "Liderazgo", "Mentoria"]
+      "description": "Me gusta diseñar y programar sistemas, crear herramientas tecnologicas que sean utiles a mi mismo u otros.",
+      "image": "hobbies/code.jpg",
+      "tags": ["Programacion", "Experimentos", "Arquitectura", "Sistemas", "Automatizacion"]
     },
     {
         "id": "7",
         "title": "Crear Contenido",
         "icon": "🎨",
         "description": "Me gusta crear contenido digital, desde videos hasta blogs, compartiendo mis experiencias y conocimientos.",
-        "image": "/hobbies/content_creation.jpg",
+        "image": "hobbies/contenido.webp",
         "tags": ["Videos", "Blogs", "Redes Sociales", "Fotografía", "Edición"]
     }
   ]

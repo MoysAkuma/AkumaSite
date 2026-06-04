@@ -1,0 +1,242 @@
+---
+// Componente de ejemplo que muestra todos los estilos manga disponibles
+---
+
+<div class="max-w-7xl mx-auto px-4 py-12 space-y-12">
+  
+  <!-- Título de la página -->
+  <div class="text-center mb-16">
+    <h1 class="text-6xl font-black text-manga-black mb-4 impact-text">
+      <span class="inline-block transform -skew-x-6 bg-accent-red px-8 py-4 shadow-manga-xl border-6 border-manga-black">
+        🎌 Estilos Manga
+      </span>
+    </h1>
+    <p class="text-xl text-manga-dark-gray font-medium mt-6">
+      Galería de componentes y estilos inspirados en manga japonés
+    </p>
+  </div>
+
+  <!-- Sección: Paneles -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Paneles
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="manga-panel">
+        <h3 class="text-xl font-black mb-2">Panel Normal</h3>
+        <p class="text-manga-dark-gray">Panel con borde grueso y sombra característica del manga.</p>
+      </div>
+      <div class="manga-panel-skewed">
+        <h3 class="text-xl font-black mb-2">Panel Inclinado</h3>
+        <p class="text-manga-dark-gray">Panel con efecto de clip-path para dar dinamismo.</p>
+      </div>
+      <div class="manga-panel manga-zoom">
+        <h3 class="text-xl font-black mb-2">Panel con Zoom</h3>
+        <p class="text-manga-dark-gray">Pasa el cursor para ver el efecto de zoom.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Burbujas de Diálogo -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Burbujas de Diálogo
+    </h2>
+    <div class="flex flex-wrap gap-8 justify-center">
+      <div class="speech-bubble">
+        <p class="text-lg font-bold">¡Hola! ¿Cómo estás?</p>
+      </div>
+      <div class="speech-bubble">
+        <p class="text-lg font-bold">¡Esto es increíble!</p>
+      </div>
+      <div class="speech-bubble">
+        <p class="text-lg font-bold">¡Bienvenido! 👋</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Texto de Impacto -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Texto de Impacto
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-manga-black p-8 flex items-center justify-center">
+        <h3 class="impact-text text-5xl">BOOM!</h3>
+      </div>
+      <div class="bg-manga-cream p-8 flex items-center justify-center border-5 border-manga-black">
+        <h3 class="impact-text-outline text-5xl">POW!</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Botones -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Botones
+    </h2>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <button class="manga-button px-8 py-3">Botón Normal</button>
+      <button class="manga-button-red px-8 py-3">⚡ Botón de Acción</button>
+      <button class="manga-button px-8 py-3">💼 Con Emoji</button>
+      <button class="manga-button-red px-8 py-3 text-lg">🚀 Botón Grande</button>
+    </div>
+  </section>
+
+  <!-- Sección: Efectos de Fondo -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Efectos de Fondo
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="screentone-light border-5 border-manga-black p-8">
+        <h3 class="text-xl font-black mb-2">Screentone Claro</h3>
+        <p class="text-manga-dark-gray">Patrón de puntos ligero</p>
+      </div>
+      <div class="screentone-medium border-5 border-manga-black p-8">
+        <h3 class="text-xl font-black mb-2">Screentone Medio</h3>
+        <p class="text-manga-dark-gray">Patrón de puntos medio</p>
+      </div>
+      <div class="screentone-dark border-5 border-manga-black p-8">
+        <h3 class="text-xl font-black mb-2 text-white">Screentone Oscuro</h3>
+        <p class="text-manga-light-gray">Patrón de puntos oscuro</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Efectos Especiales -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Efectos Especiales
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="speed-lines bg-white border-5 border-manga-black p-8 min-h-[200px] flex items-center justify-center">
+        <h3 class="text-2xl font-black text-manga-black">Líneas de Velocidad</h3>
+      </div>
+      <div class="focus-lines bg-white border-5 border-manga-black p-8 min-h-[200px] flex items-center justify-center">
+        <h3 class="text-2xl font-black text-manga-black">Líneas de Enfoque</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Sombras -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Sombras Manga
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="bg-white border-3 border-manga-black p-6 shadow-manga-sm">
+        <h4 class="font-black text-center">Sombra SM</h4>
+      </div>
+      <div class="bg-white border-3 border-manga-black p-6 shadow-manga">
+        <h4 class="font-black text-center">Sombra Normal</h4>
+      </div>
+      <div class="bg-white border-3 border-manga-black p-6 shadow-manga-lg">
+        <h4 class="font-black text-center">Sombra LG</h4>
+      </div>
+      <div class="bg-white border-3 border-manga-black p-6 shadow-manga-xl">
+        <h4 class="font-black text-center">Sombra XL</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Paleta de Colores -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Paleta de Colores
+    </h2>
+    
+    <!-- Colores Base -->
+    <div>
+      <h3 class="text-2xl font-black mb-4">Colores Base</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-manga-deep-black h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Deep Black</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-manga-black h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Black</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-manga-dark-gray h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Dark Gray</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-manga-medium-gray h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Medium Gray</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-manga-light-gray h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Light Gray</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-manga-paper h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Paper</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-manga-cream h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Cream</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-manga-white h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">White</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colores de Acento -->
+    <div>
+      <h3 class="text-2xl font-black mb-4">Colores de Acento</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-accent-dark-red h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Dark Red</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-accent-blood-red h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Blood Red</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-accent-red h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Red</p>
+        </div>
+        <div class="border-3 border-manga-black overflow-hidden">
+          <div class="bg-accent-bright-red h-24"></div>
+          <p class="text-center py-2 text-sm font-bold bg-white">Bright Red</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ejemplo Completo -->
+  <section class="space-y-6">
+    <h2 class="text-4xl font-black text-manga-black uppercase border-b-5 border-accent-red pb-2 inline-block">
+      Ejemplo Completo
+    </h2>
+    <div class="manga-panel p-8 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-0 h-0 border-t-[50px] border-t-accent-red border-l-[50px] border-l-transparent"></div>
+      <div class="text-6xl mb-4">🚀</div>
+      <h3 class="text-3xl font-black text-manga-black uppercase mb-4">Proyecto Increíble</h3>
+      <p class="text-manga-dark-gray font-medium mb-6 leading-relaxed">
+        Este es un ejemplo completo de cómo combinar varios elementos del tema manga 
+        para crear una tarjeta de proyecto visualmente impactante y con personalidad.
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <button class="manga-button-red px-6 py-3">⚡ Ver Más</button>
+        <button class="manga-button px-6 py-3">📋 Detalles</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nota Final -->
+  <div class="text-center manga-panel-skewed p-8 bg-manga-black">
+    <p class="text-2xl font-black text-white uppercase">
+      ¡Experimenta con estos estilos! 🎌⚡
+    </p>
+    <p class="text-manga-light-gray mt-2 font-medium">
+      Consulta MANGA-THEME.md para más información
+    </p>
+  </div>
+
+</div>

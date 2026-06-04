@@ -7,52 +7,77 @@ import profileData from '../data/profile.json';
 const baseUrl = import.meta.env.BASE_URL || '/';
 ---
 
-<BaseLayout title="Inicio - Mi Sitio Personal">
+<BaseLayout title="MoysAkuma - Desarrollador Full Stack">
   <Navbar />
   
-  <!-- Hero Section -->
-  <section class="py-20 bg-gradient-to-br from-primary-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Hero Section - Estilo panel de manga -->
+  <section class="py-20 relative overflow-hidden focus-lines">
+    <div class="absolute inset-0 screentone-light opacity-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center">
-        <div class="mb-8">
-          <div class="w-32 h-32 mx-auto bg-gradient-to-br from-primary-500 to-primary-700 rounded-full flex items-center justify-center text-white text-5xl font-bold">
-            {profileData.name.charAt(0)}
+        <div class="mb-8 inline-block manga-zoom">
+          <div class="w-40 h-40 mx-auto bg-manga-black border-5 border-manga-black shadow-manga-lg overflow-hidden transform -rotate-3">
+            <img 
+              src={`${baseUrl}${profileData.avatar}`}
+              alt={profileData.name}
+              class="w-full h-full object-cover"
+            />
           </div>
         </div>
-        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-          {profileData.name}
+        
+        <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tight">
+          <span class="inline-block transform -skew-x-6 bg-accent-red text-black px-6 py-2 shadow-manga-lg border-5 border-manga-black">
+            {profileData.name}
+          </span>
         </h1>
-        <p class="text-2xl md:text-3xl text-primary-600 mb-6">
-          {profileData.title}
+        
+        <div class="speech-bubble mx-auto mb-8 max-w-xl">
+          <p class="text-xl md:text-2xl text-manga-black font-bold">
+            {profileData.title}
+          </p>
+        </div>
+        
+        <p class="text-lg text-manga-dark-gray max-w-2xl mx-auto mb-12 font-medium border-l-5 border-manga-black pl-6 italic">
+          "{profileData.bio}"
         </p>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-          {profileData.bio}
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
+        
+        <div class="flex flex-wrap justify-center gap-6">
           <a
-            href={`${baseUrl}/portfolio`}
-            class="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium"
+            href="/portfolio"
+            class="manga-button-red px-10 py-4 text-lg"
           >
-            Ver Portfolio
+            ⚡ Ver Portfolio
           </a>
           <a
-            href={`${baseUrl}/services`}
-            class="px-8 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition font-medium"
+            href="/services"
+            class="manga-button px-10 py-4 text-lg"
           >
-            Mis Servicios
+            💼 Mis Servicios
           </a>
         </div>
       </div>
     </div>
+    
+    <!-- Líneas de acción decorativas -->
+    <div class="absolute top-1/4 left-0 w-full h-1 bg-manga-black opacity-20 transform -rotate-12"></div>
+    <div class="absolute bottom-1/4 right-0 w-full h-1 bg-manga-black opacity-20 transform rotate-12"></div>
   </section>
 
-  <!-- Skills Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12">Habilidades</h2>
+  <!-- Skills Section - Estilo paneles de manga -->
+  <section class="py-16 bg-manga-paper relative">
+    <div class="absolute inset-0 screentone-light opacity-5"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <h2 class="text-5xl font-black text-center mb-12 text-manga-black uppercase tracking-tight">
+        <span class="inline-block border-b-6 border-accent-red pb-2">
+          💪 Habilidades
+        </span>
+      </h2>
       <div class="flex flex-wrap justify-center gap-4">
-        {profileData.skills.map((skill) => (
-          <span class="px-6 py-3 bg-primary-100 text-primary-700 rounded-full font-medium">
+        {profileData.skills.map((skill, index) => (
+          <span 
+            class="manga-panel px-6 py-3 font-bold text-manga-black uppercase text-sm tracking-wide manga-zoom"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
             {skill}
           </span>
         ))}
@@ -60,59 +85,87 @@ const baseUrl = import.meta.env.BASE_URL || '/';
     </div>
   </section>
 
-  <!-- Quick Links Section -->
-  <section class="py-16 bg-gray-50">
+  <!-- Quick Links Section - Estilo paneles de manga -->
+  <section class="py-16 bg-manga-cream relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center mb-12">Explora</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <a href={`${baseUrl}/portfolio`} class="group p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-          <div class="text-4xl mb-4">🎨</div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-primary-600 transition">Portfolio</h3>
-          <p class="text-gray-600">Mis trabajos y proyectos realizados</p>
+      <h2 class="text-5xl font-black text-center mb-16 text-manga-black uppercase tracking-tight">
+        <span class="inline-block border-b-6 border-accent-red pb-2">
+          🎯 Explora
+        </span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <a href="/portfolio" class="manga-panel group relative overflow-hidden panel-appear">
+          <div class="text-6xl mb-4 transform group-hover:scale-125 transition-transform duration-300">🎨</div>
+          <h3 class="text-2xl font-black mb-3 text-manga-black uppercase">Portfolio</h3>
+          <p class="text-manga-dark-gray font-medium">Mis trabajos y proyectos realizados</p>
+          <div class="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-t-accent-red border-l-[30px] border-l-transparent"></div>
         </a>
-        <a href={`${baseUrl}/projects`} class="group p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-          <div class="text-4xl mb-4">💻</div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-primary-600 transition">Proyectos</h3>
-          <p class="text-gray-600">Proyectos de código abierto</p>
+        
+        <a href="/projects" class="manga-panel group relative overflow-hidden panel-appear" style="animation-delay: 0.1s">
+          <div class="text-6xl mb-4 transform group-hover:scale-125 transition-transform duration-300">💻</div>
+          <h3 class="text-2xl font-black mb-3 text-manga-black uppercase">Proyectos</h3>
+          <p class="text-manga-dark-gray font-medium">Proyectos de código abierto</p>
+          <div class="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-t-accent-red border-l-[30px] border-l-transparent"></div>
         </a>
-        <a href={`${baseUrl}/services`} class="group p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-          <div class="text-4xl mb-4">🚀</div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-primary-600 transition">Servicios</h3>
-          <p class="text-gray-600">Soluciones que ofrezco</p>
+        
+        <a href="/services" class="manga-panel group relative overflow-hidden panel-appear" style="animation-delay: 0.2s">
+          <div class="text-6xl mb-4 transform group-hover:scale-125 transition-transform duration-300">🚀</div>
+          <h3 class="text-2xl font-black mb-3 text-manga-black uppercase">Servicios</h3>
+          <p class="text-manga-dark-gray font-medium">Soluciones que ofrezco</p>
+          <div class="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-t-accent-red border-l-[30px] border-l-transparent"></div>
         </a>
-        <a href={`${baseUrl}/hobbies`} class="group p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-          <div class="text-4xl mb-4">🎮</div>
-          <h3 class="text-xl font-bold mb-2 group-hover:text-primary-600 transition">Hobbies</h3>
-          <p class="text-gray-600">Mis pasiones e intereses</p>
+        
+        <a href="/hobbies" class="manga-panel group relative overflow-hidden panel-appear" style="animation-delay: 0.3s">
+          <div class="text-6xl mb-4 transform group-hover:scale-125 transition-transform duration-300">🎮</div>
+          <h3 class="text-2xl font-black mb-3 text-manga-black uppercase">Hobbies</h3>
+          <p class="text-manga-dark-gray font-medium">Mis pasiones e intereses</p>
+          <div class="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-t-accent-red border-l-[30px] border-l-transparent"></div>
         </a>
       </div>
     </div>
+    
+    <!-- Efecto de líneas de velocidad de fondo -->
+    <div class="absolute inset-0 pointer-events-none opacity-10">
+      <div class="absolute top-1/4 left-0 w-full h-2 bg-manga-black transform -skew-y-12"></div>
+      <div class="absolute top-1/2 left-0 w-full h-1 bg-manga-black transform -skew-y-12"></div>
+      <div class="absolute top-3/4 left-0 w-full h-2 bg-manga-black transform -skew-y-12"></div>
+    </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold mb-6">¿Hablamos?</h2>
-      <p class="text-lg text-gray-600 mb-8">
-        Estoy disponible para nuevos proyectos y colaboraciones
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href={profileData.social.email}
-          class="px-8 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition font-medium"
-        >
-          📧 Enviar Email
-        </a>
-        {profileData.social.linkedin && (
+  <!-- Contact Section - Estilo burbuja de diálogo -->
+  <section class="py-20 bg-manga-paper relative">
+    <div class="absolute inset-0 screentone-light opacity-5"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="manga-panel-skewed p-12 bg-white">
+        <h2 class="text-5xl font-black mb-6 text-manga-black uppercase">
+          ¿Hablamos? 💬
+        </h2>
+        <p class="text-xl text-manga-dark-gray mb-10 font-bold">
+          Estoy disponible para nuevos proyectos y colaboraciones
+        </p>
+        <div class="flex flex-wrap justify-center gap-6">
           <a
-            href={profileData.social.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
+            href={profileData.social.email}
+            class="manga-button-red px-10 py-4 text-lg"
           >
-            LinkedIn
+            📧 Enviar Email
           </a>
-        )}
+          {profileData.social.linkedin && (
+            <a
+              href={profileData.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="manga-button px-10 py-4 text-lg"
+            >
+              💼 LinkedIn
+            </a>
+          )}
+        </div>
+      </div>
+      
+      <!-- Efecto de onomatopeya decorativa -->
+      <div class="absolute -top-10 -right-10 text-6xl font-black text-accent-red opacity-30 transform rotate-12 hidden lg:block">
+        悪魔!
       </div>
     </div>
   </section>
