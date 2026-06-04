@@ -209,7 +209,6 @@ npm run build
 - `/projects` - Proyectos de código abierto
 - `/services` - Servicios ofrecidos
 - `/hobbies` - Intereses personales
-- `/manga-guide` - **Guía completa de estilos manga**
 
 ## 📄 Licencia
 
